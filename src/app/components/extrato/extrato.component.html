@@ -6,16 +6,9 @@
   </thead>
   <tbody>
     <tr *ngFor="let item of transferencia">
-      <td>{{ item?.data }}</td>
-      <td>R$ {{ item?.valor }}</td>
+      <td>{{ item?.data | date: "short" }}</td>
+      <td>{{ item?.valor | currency }}</td>
       <td>{{ item?.destino }}</td>
     </tr>
   </tbody>
 </table>
-
-<!-- <div *ngFor="let item of transferencia">
-  <span>Data: {{ item?.data }}</span>
-  <p>Valor: {{ item?.valor }}</p>
-  <p>Destino: {{ item?.destino }}</p>
-  <span>Data: {{ item?.data }}</span>
-</div> -->
