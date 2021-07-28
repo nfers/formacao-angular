@@ -1,2 +1,21 @@
-<p>Valor: {{ transferencia?.valor }}</p>
-<p>Destino: {{ transferencia?.destino }}</p>
+<table class="table table-striped">
+  <thead>
+    <th scope="col">Data</th>
+    <th scope="col">Valor</th>
+    <th scope="col">Conta Destino</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of transferencia">
+      <td>{{ item?.data }}</td>
+      <td>R$ {{ item?.valor }}</td>
+      <td>{{ item?.destino }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- <div *ngFor="let item of transferencia">
+  <span>Data: {{ item?.data }}</span>
+  <p>Valor: {{ item?.valor }}</p>
+  <p>Destino: {{ item?.destino }}</p>
+  <span>Data: {{ item?.data }}</span>
+</div> -->
