@@ -4,7 +4,7 @@
     <th scope="col">Valor</th>
     <th scope="col">Conta Destino</th>
   </thead>
-  <tbody>
+  <tbody *ngIf="transferencia?.length > 0; else listaVazia">
     <tr *ngFor="let item of transferencia">
       <td>{{ item?.data | date: "short" }}</td>
       <td>{{ item?.valor | currency }}</td>
@@ -12,3 +12,7 @@
     </tr>
   </tbody>
 </table>
+
+<<ng-template #listaVazia>
+  <p>Nenhuma Operação foi cadastrada!</p>
+</ng-template>
