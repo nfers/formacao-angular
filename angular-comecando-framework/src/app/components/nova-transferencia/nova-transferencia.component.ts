@@ -1,6 +1,7 @@
 import { Transferencia } from './../../models/transferencia.model';
 import { TransferenciaService } from './../../services/transferencia.service';
 import { Component, Output, EventEmitter } from "@angular/core";
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-nova-transferencia',
   templateUrl: './nova-transferencia.component.html',
@@ -11,10 +12,9 @@ export class NovaTransferenciaComponent {
 
   @Output() postTransfer = new EventEmitter<any>()
 
-  constructor(private service: TransferenciaService) {
+  constructor(private service: TransferenciaService, private router: Router) {
 
    }
-
 
   valor: number;
   destino: number;
@@ -22,12 +22,13 @@ export class NovaTransferenciaComponent {
   transferir() {
     const newValue : Transferencia = { valor: this.valor, destino: this.destino }
 
-    this.service.adicionaTransferencia(newValue).subscribe( res => {
-      console.log(res)
-    });
-
-
-    this.cleanFields();
+    this.service.adicionaTransferencia(newValue)
+      .subscribe( res => {
+        this.cleanFields();
+        this.router.navigate(['extrato']);
+    },
+      (error => console.error(error))
+    );
   }
 
   cleanFields() {
