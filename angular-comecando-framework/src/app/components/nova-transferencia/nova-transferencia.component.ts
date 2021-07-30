@@ -1,5 +1,4 @@
 import { Component, Output, EventEmitter } from "@angular/core";
-
 @Component({
   selector: 'app-nova-transferencia',
   templateUrl: './nova-transferencia.component.html',
