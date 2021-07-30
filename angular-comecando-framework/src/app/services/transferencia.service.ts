@@ -22,7 +22,7 @@ export class TransferenciaService {
   adicionaTransferencia(transferencia: any) {
 
     this.preencher(transferencia);
-    //const transferencias = {...$event, data: new Date()};
+
     this.listaTransferencia.push(transferencia);
   }
 

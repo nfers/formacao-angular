@@ -9,6 +9,7 @@ export class AppComponent {
   title = 'byteBank';
 
   constructor(private service: TransferenciaService) {}
+
   transfer($event) {
     this.service.adicionaTransferencia($event);
   }
